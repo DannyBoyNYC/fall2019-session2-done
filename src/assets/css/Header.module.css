@@ -1,0 +1,57 @@
+.header {
+  min-height: 220px;
+  padding: 20px;
+  color: #333;
+  background-color: #bada55;
+  background-image: url(../img/hero.png);
+  background-position: 100% 50%;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  position: relative;
+}
+
+h1 {
+  font-family: 'Pirata One', cursive;
+  font-size: 5rem;
+  color: #c90813;
+  line-height: 1.1;
+  position: absolute;
+  z-index: 12;
+}
+
+.logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 230px;
+  position: absolute;
+  opacity: 0.4;
+  width: 18rem;
+}
+
+svg path {
+  animation: orbit 6s infinite linear;
+  transform-origin: 50% 50%;
+}
+
+@keyframes orbit {
+  0% {
+    fill: #c90813;
+    transform: scale(1);
+  }
+  50% {
+    fill: #bada55;
+    transform: scale(1.1);
+  }
+  100% {
+    fill: #c90813;
+    transform: scale(1);
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

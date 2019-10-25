@@ -1,12 +1,13 @@
 import React from 'react';
-import '../assets/css/Header.css';
-import logo from '../assets/img/anchor.svg';
+import styles from '../assets/css/Header.module.css';
+import logo, { ReactComponent as Anchor } from '../assets/img/anchor.svg';
 
 function Header({ title }) {
   return (
-    <div className="header">
-      <img src={logo} className="logo" alt="logo" />
+    <div className={styles.header}>
       <h1>{title}</h1>
+      {/* <img src={logo} className={styles.logo} alt="logo" /> */}
+      <Anchor className={styles.logo} />
     </div>
   );
 }
