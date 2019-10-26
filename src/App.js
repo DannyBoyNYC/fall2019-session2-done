@@ -1,7 +1,7 @@
 import React from 'react';
 import Pirate from './components/Pirate';
 import Header from './components/Header';
-
+import PirateForm from './components/PirateForm';
 import piratesFile from './data/sample-pirates-array';
 
 const pirateCalls = [
@@ -17,9 +17,10 @@ function App() {
   return (
     <div>
       <Header title={randomize()} />
+      <PirateForm />
       {piratesFile.map((pirate, index) => (
-        <section>
-          <Pirate key={pirate.id} tagline={randomize()} pirate={pirate} />
+        <section key={pirate.id}>
+          <Pirate tagline={randomize()} pirate={pirate} />
         </section>
       ))}
     </div>
