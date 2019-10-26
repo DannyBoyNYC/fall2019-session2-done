@@ -1,6 +1,7 @@
-// pirate array
+// an array of objects
 const pirates = [
   {
+    id: 1,
     name: 'John Rackham',
     image: 'avatar.png',
     desc:
@@ -10,6 +11,7 @@ const pirates = [
     vessel: 'Bounty',
   },
   {
+    id: 2,
     name: 'Donald Trump',
     image: 'avatar.png',
     desc:
@@ -19,6 +21,7 @@ const pirates = [
     vessel: 'Trump Airlines',
   },
   {
+    id: 3,
     name: 'Blackbeard',
     image: 'avatar.png',
     desc:
@@ -28,6 +31,7 @@ const pirates = [
     vessel: 'Revenge',
   },
   {
+    id: 4,
     name: 'Jean Lafitte',
     image: 'avatar.png',
     desc:
