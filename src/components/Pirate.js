@@ -1,19 +1,33 @@
-// import React from 'react';
+import React from 'react';
+import '../assets/css/Pirate.css';
+import avatar from '../assets/img/avatar.png';
 
-// function Pirate({ tagline }) {
-//   return <p>{tagline}</p>;
+// function Pirate(props) {
+//   return (
+//     <div className="pirate">
+//       <p>{props.tagline}</p>
+//     </div>
+//   );
 // }
 
-// export default Pirate;
-import React, { Component } from 'react';
-import '../assets/css/Pirate.css';
-
-class Pirate extends Component {
+class Pirate extends React.Component {
   render() {
-    const { tagline } = this.props;
+    const { name, year, weapon, vessel, desc } = this.props.pirate;
     return (
-      <div className="pirate">
-        <p>{tagline}</p>
+      <div className='pirate'>
+        <ul>
+          <li>
+            <img src={avatar} alt='pirate' />
+            <h3>{name}</h3>
+            <p>Died: {year}</p>
+            <p>Favorite weapon: {weapon}</p>
+            <p>Sailed on: {vessel}</p>
+          </li>
+          <li>
+            <h2>"{this.props.tagline}"</h2>
+            <p>{desc}</p>
+          </li>
+        </ul>
       </div>
     );
   }
