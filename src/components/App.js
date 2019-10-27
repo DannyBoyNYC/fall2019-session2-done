@@ -1,8 +1,9 @@
 import React from 'react';
-import Pirate from './components/Pirate';
-import Header from './components/Header';
+import Pirate from './Pirate';
+import Header from './Header';
+import PirateForm from './PirateForm';
 
-import piratesFile from './data/sample-pirates-array';
+import piratesFile from '../data/sample-pirates-array';
 
 const pirateCalls = [
   'Aaarg, belay that!',
@@ -17,6 +18,7 @@ function App() {
   return (
     <div>
       <Header title={randomize()} />
+      <PirateForm />
       {piratesFile.map(pirate => (
         <Pirate key={pirate.id} tagline={randomize()} pirate={pirate} />
       ))}
