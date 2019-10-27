@@ -8,31 +8,36 @@ class AddPirateForm extends React.Component {
 
   createPirate = event => {
     event.preventDefault();
-    console.log('making a pirate');
+    const pirate = {
+      name: this.nameRef.current.value,
+      vessel: this.vesselRef.current.value,
+      weapon: this.weaponRef.current.value,
+    };
+    this.props.addPirate(pirate);
   };
 
   render() {
     return (
       <form onSubmit={this.createPirate}>
         <input
-          type='text'
-          name='name'
-          placeholder='Pirate name'
+          type="text"
+          name="name"
+          placeholder="Pirate name"
           ref={this.nameRef}
         />
         <input
-          type='text'
-          name='vessel'
-          placeholder='Pirate vessel'
+          type="text"
+          name="vessel"
+          placeholder="Pirate vessel"
           ref={this.vesselRef}
         />
         <input
-          type='text'
-          name='weapon'
-          placeholder='Pirate weapon'
+          type="text"
+          name="weapon"
+          placeholder="Pirate weapon"
           ref={this.weaponRef}
         />
-        <button type='submit'>Add Pirate</button>
+        <button type="submit">Add Pirate</button>
       </form>
     );
   }
