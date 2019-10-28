@@ -2,13 +2,25 @@ import React from 'react';
 import Pirate from './Pirate';
 import Header from './Header';
 import PirateForm from './PirateForm';
-
+import { base } from '../base';
 import piratesFile from '../data/sample-pirates-array';
 
 class App extends React.Component {
   state = {
-    pirates: piratesFile,
+    pirates: [],
   };
+
+  componentDidMount() {
+    this.ref = base.syncState(`pirates`, {
+      context: this,
+      state: 'pirates',
+      asArray: true,
+    });
+  }
+
+  componentWillUnmount() {
+    base.removeBinding(this.ref);
+  }
 
   render() {
     const pirateCalls = [
@@ -21,13 +33,15 @@ class App extends React.Component {
       pirateCalls[Math.floor(Math.random() * pirateCalls.length)];
 
     const addPirate = pirate => {
-      console.log(pirate);
-      //take a copy of the current state and put it into pirates var
+      // this.setState({ pirates: this.state.pirates.concat([pirate]) });
+      this.setState({ pirates: [...this.state.pirates, pirate] });
+    };
+
+    const removePirate = index => {
+      console.log(index);
       const pirates = [...this.state.pirates];
+      pirates.splice(index, 1);
       console.log(pirates);
-      pirates.unshift(pirate);
-      console.log(pirates);
-      //set state pirates with var pirates
       this.setState({ pirates: pirates });
     };
 
@@ -35,8 +49,14 @@ class App extends React.Component {
       <>
         <Header title={randomize()} />
         <PirateForm addPirate={addPirate} />
-        {this.state.pirates.map(pirate => (
-          <Pirate key={pirate.id} tagline={randomize()} pirate={pirate} />
+        {this.state.pirates.map((pirate, index) => (
+          <Pirate
+            key={index}
+            index={index}
+            tagline={randomize()}
+            pirate={pirate}
+            removePirate={removePirate}
+          />
         ))}
       </>
     );
